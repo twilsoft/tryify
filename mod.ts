@@ -1,1 +1,1 @@
-export { tryify } from "./tryify.ts";
+export { tryify, tryifyAsync } from "./tryify.ts";
