@@ -2,7 +2,7 @@
 
 A teeny tiny functional style error handling module for Deno 🦕
 
-***If you've found this on github and want to contribute, please consider making a PR [here](https://git.twilsoft.uk/twilsoft/tryify) instead. PR's can still be opened here but I'll manually merge them upstream.***
+***If you've found this on Github and want to contribute, please consider making a PR [here](https://git.twilsoft.uk/twilsoft/tryify) instead. PR's can still be opened on github but I'll manually merge them upstream.***
 
 ### Why?
 I don't like `throw`ing things. If you're like me and want to be more deliberate with your error handling this is the tool for you.
