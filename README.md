@@ -15,7 +15,7 @@ Easy! Take a look:
 ```ts
 import { tryify } from 'https://deno.land/x/tryify@1.0.0'
 
-const brokenAdd = (a: number, b: number): number => throw Error('Oops!');
+const brokenAdd = (a: number, b: number): number => {throw Error('Oops!')};
 
 // THIS
 let result; // result has to be mutable to use outside of the try block
@@ -26,7 +26,7 @@ try {
 }
 
 // BECOMES THIS
-const brokenAdd = tryify((a: number, b: number): number => throw Error('Oops!'));
+const brokenAdd = tryify((a: number, b: number): number => {throw Error('Oops!'))};
 const [error, result] = await brokenAdd(5, 6);
 // in this case result is undefined and the error is populated with the 'Oops!' error.
 // if our function had succeeded, result would be 11 here.
@@ -39,8 +39,8 @@ const [error, result] = await tryifyAsync(someFunc)(5, 6);
 tryify(someFunc).then(([error, response]) => console.error(error, response));
 ```
 
-### Drawbacks
-Maybe it's just my typescript-fu but I can't figure out a way to ***only*** need one tryify function instead of `tryify` and `tryifyAsync`. If you've got any ideas please share!
+### Goals
+I'm not sure it's possible, but I'm hoping someone smarter than me can help. I'd like to be able to have only one function exported that handles both async and sync promises. I've tried and I can't it working without dirty hacks.
 
 ### Trust issues?
 Check out the tests.

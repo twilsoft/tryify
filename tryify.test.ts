@@ -14,7 +14,7 @@ const spyOn = <T>(func: (...args: any) => T) => {
   });
 };
 
-const brokenAdd = spyOn((_a: number, _b: number) => {
+const brokenAdd = spyOn((_a: number, _b: number): number => {
   throw Error("Oops!");
 });
 
@@ -44,6 +44,19 @@ Deno.test("tryify", async (t) => {
       assertEquals(error, undefined);
       assertEquals(result, 101);
       assertEquals(workingAdd.getLastCalledWith(), [100, 1]);
+    },
+  );
+
+  await t.step(
+    "It works with parameterless & void functions",
+    () => {
+      const doSomething = (): void => {
+        console.log("hello");
+      };
+
+      const [error, result] = tryify(doSomething)();
+      assertEquals(error, undefined);
+      assertEquals(result, undefined);
     },
   );
 });
