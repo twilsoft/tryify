@@ -35,8 +35,6 @@ If you're working with async/promises, use `tryifyAsync` instead.
 ```ts
 import { tryify, tryifyAsync } from 'https://deno.land/x/tryify@1.0.0'
 const [error, result] = await tryifyAsync(someFunc)(5, 6);
-// or
-tryify(someFunc).then(([error, response]) => console.error(error, response));
 ```
 
 ### Goals
