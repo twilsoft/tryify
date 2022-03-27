@@ -13,7 +13,8 @@ tryify is a small function that wraps an existing function and matches its api w
 ### How?
 Easy! Take a look:
 ```ts
-import { tryify } from 'https://deno.land/x/tryify@1.0.0'
+import { tryify } from 'https://deno.land/x/tryify@1.0.5' // or
+import { tryify } from 'https://deno.land/x/tryify' // or for the latest version. (Not recommended)
 
 const brokenAdd = (a: number, b: number): number => {throw Error('Oops!')};
 
